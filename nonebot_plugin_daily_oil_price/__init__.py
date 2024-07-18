@@ -20,7 +20,7 @@ __plugin_meta__ = PluginMetadata(
     description="查询每日地区油价，定时推送油价",
     usage="今日油价",
     type="application",
-    homepage="",
+    homepage="https://github.com/wyeeeee/nonebot-plugin-daily-oil-price",
     config=Config,
     supported_adapters={"~onebot.v11"},
 )
