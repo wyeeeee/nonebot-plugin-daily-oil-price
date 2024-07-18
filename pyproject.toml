@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nonebot-plugin-daily-oil-price"
-version = "0.1.1"
+version = "0.1.2"
 description = "nonebot每日油价插件"
 authors = ["wyeeeee <1563031828@qq.com>"]
 license = "MIT"
