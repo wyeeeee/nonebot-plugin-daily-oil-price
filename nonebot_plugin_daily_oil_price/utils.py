@@ -1,4 +1,3 @@
-from datetime import date
 from pathlib import Path
 import httpx
 import json
