@@ -1,6 +1,6 @@
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel,field_validator
 from typing import Union
-from nonebot import get_driver
+from nonebot import get_plugin_config
 ALL_GROUPS = False
 HOUR = 8
 MINUTE = 0
@@ -9,7 +9,7 @@ PROVINCES=["北京"]
 character=str.maketrans("：", ":")
 
 
-class Config(BaseModel, extra=Extra.ignore):
+class Config(BaseModel):
     all_qq_groups: bool = False  
     qq_groups: list[int] = [] 
     qq_friends: list[int] = [] 
@@ -17,7 +17,7 @@ class Config(BaseModel, extra=Extra.ignore):
     send_time: Union[str, list] = None 
 
 
-plugin_config = Config.parse_obj(get_driver().config.dict())
+plugin_config = get_plugin_config(Config)
 
 if isinstance(plugin_config.send_time, str):
     plugin_config.send_time= plugin_config.send_time.translate(character)

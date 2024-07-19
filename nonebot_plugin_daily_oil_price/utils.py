@@ -2,10 +2,13 @@ from pathlib import Path
 import httpx
 import json
 import re
+from nonebot import require
 from nonebot.adapters.onebot.v11 import Bot, MessageSegment
 from .config import PROVINCES_ID
-DATA_FILE: Path = Path(__file__).parent/"DATA.json"
-
+require("nonebot_plugin_localstore")
+import nonebot_plugin_localstore as store
+#DATA_FILE: Path = Path(__file__).parent/"DATA.json"
+DATA_FILE: Path = store.get_data_file("nonebot_plugin_daily_oil_price","DATA.json")
 def get_data(file=DATA_FILE) -> dict:
     if not file.exists():
         return {}
